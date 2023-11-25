@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:video_editor_flutter/ResultPage.dart';
+import 'ResultPage.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'video_items.dart';
@@ -54,14 +54,16 @@ class _UploadPageState extends State<UploadPage> {
   }
 
   void _onVideo1ButtonPressed(ImageSource source) async {
-    _video1File = await _picker.getVideo(
-        source: source, maxDuration: const Duration(seconds: 10));
+    _video1File = (await _picker.pickVideo(
+        source: source,
+        maxDuration: const Duration(seconds: 10))) as PickedFile?;
     await _setVideoController(_video1File!, true);
   }
 
   void _onVideo2ButtonPressed(ImageSource source) async {
-    _video2File = await _picker.getVideo(
-        source: source, maxDuration: const Duration(seconds: 10));
+    _video2File = (await _picker.pickVideo(
+        source: source,
+        maxDuration: const Duration(seconds: 10))) as PickedFile?;
     await _setVideoController(_video2File!, false);
   }
 

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:video_editor_flutter/ImagePage.dart';
+import 'ImagePage.dart';
 
 class HistoryPage extends StatefulWidget {
   HistoryPage({Key? key, required this.title}) : super(key: key);
